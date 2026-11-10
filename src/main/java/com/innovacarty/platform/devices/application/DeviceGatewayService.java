@@ -75,6 +75,8 @@ public class DeviceGatewayService {
         switch (type) {
             case "BOOT" -> {
                 if (cart.getStatus() == CartStatus.OFFLINE) cart.setStatus(CartStatus.AVAILABLE);
+                // The cart restarted with an empty basket: a paid order cannot continue.
+                if (cart.getStatus() == CartStatus.PAID) lifecycle.finish(cart);
                 lifecycle.touch(cart, "Cart online");
                 lifecycle.record(cart.getId(), "DEVICE", "Cart online", detail, EventTone.INFO);
             }
