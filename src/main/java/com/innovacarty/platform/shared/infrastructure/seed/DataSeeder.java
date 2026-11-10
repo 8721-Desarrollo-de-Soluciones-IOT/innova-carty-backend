@@ -21,6 +21,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -29,6 +30,7 @@ import org.springframework.transaction.annotation.Transactional;
  * Sprint 1 fake API (seed/db.json) plus the physical prototype CART-0427 and its 10 tagged products.
  */
 @Component
+@Order(1)
 public class DataSeeder implements ApplicationRunner {
     private static final Logger log = LoggerFactory.getLogger(DataSeeder.class);
     /** The physical prototype uses CART-0427, so the demo cart with that id is renamed. */
