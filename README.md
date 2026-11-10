@@ -74,6 +74,15 @@ mvn spring-boot:run        # or open the folder in IntelliJ and run PlatformAppl
 
 The physical prototype is **CART-0427**, with the 10 NTAG215 products (`SKU-IC-001` to `SKU-IC-010`).
 
+## Tests
+
+```bash
+mvn test
+```
+
+- **Unit tests** (JUnit 5 + Mockito): `CartLifecycleServiceTest` (session, RFID items, weight check, budget, payment rules, geofence lock, link of the app) and `PaymentServiceTest` (simulated Yape / Plin / card payments).
+- **Acceptance tests** (Cucumber, BDD): the Gherkin features of the Sprint 2 user stories are in `src/test/resources/features` (TS01, TS02, US04, US05, US06, US08) and their steps in `src/test/java/.../acceptance/SmartCartSteps.java`. They start the API with the in-memory H2 database and call it like the cart (`X-Device-Key`), the shopper app and the Web Console do. The report is written to `target/cucumber-report.html`.
+
 ## Deploy on Render with Supabase
 
 1. Render: **New → Web Service**, connect this repository, **Language: Docker**, plan **Free**, health check `/actuator/health`.
