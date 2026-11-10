@@ -1,0 +1,1264 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "lucia.medina@retailco.pe",
+      "password": "demo1234",
+      "fullName": "Lucía Medina",
+      "role": "Floor supervisor",
+      "storeId": 1,
+      "supervisorPin": "2468"
+    }
+  ],
+  "stores": [
+    {
+      "id": 1,
+      "name": "Surco Store #01",
+      "fleetSize": 40,
+      "gatewayStatus": "ONLINE",
+      "avgCheckoutSeconds": 48,
+      "checkoutTimeVsCashier": -31,
+      "shrinkagePreventedWeek": 1240,
+      "discrepanciesSolvedWeek": 17,
+      "lastCatalogSyncAt": "2026-10-03T10:15:00-05:00"
+    }
+  ],
+  "carts": [
+    {
+      "id": "CART-0427",
+      "status": "DISCREPANCY",
+      "zone": "Aisle 4 · Dairy",
+      "itemsCount": 6,
+      "total": 76.6,
+      "budget": 150,
+      "lastEvent": "+412 g without tag",
+      "lastEventAt": "2026-10-03T10:42:18-05:00",
+      "battery": 78,
+      "sessionId": "ORD-20261003-0815"
+    },
+    {
+      "id": "CART-0311",
+      "status": "LOCKED",
+      "zone": "Exit B",
+      "itemsCount": 11,
+      "total": 105.0,
+      "budget": 0,
+      "lastEvent": "Geofence crossed unpaid",
+      "lastEventAt": "2026-10-03T10:41:30-05:00",
+      "battery": 64,
+      "sessionId": "ORD-20261003-0816"
+    },
+    {
+      "id": "CART-0102",
+      "status": "IN_SESSION",
+      "zone": "Aisle 7 · Meat",
+      "itemsCount": 7,
+      "total": 151.5,
+      "budget": 150,
+      "lastEvent": "Budget 95% reached",
+      "lastEventAt": "2026-10-03T10:41:58-05:00",
+      "battery": 91,
+      "sessionId": "ORD-20261003-0817"
+    },
+    {
+      "id": "CART-0215",
+      "status": "IN_SESSION",
+      "zone": "Aisle 2 · Bakery",
+      "itemsCount": 3,
+      "total": 26.3,
+      "budget": 80,
+      "lastEvent": "Item added",
+      "lastEventAt": "2026-10-03T10:42:33-05:00",
+      "battery": 55,
+      "sessionId": "ORD-20261003-0818"
+    },
+    {
+      "id": "CART-0388",
+      "status": "PAID",
+      "zone": "Exit A",
+      "itemsCount": 9,
+      "total": 169.8,
+      "budget": 200,
+      "lastEvent": "Payment confirmed (Plin)",
+      "lastEventAt": "2026-10-03T10:40:38-05:00",
+      "battery": 47,
+      "sessionId": "ORD-20261003-0819"
+    },
+    {
+      "id": "CART-0144",
+      "status": "IN_SESSION",
+      "zone": "Aisle 9 · Grocery",
+      "itemsCount": 3,
+      "total": 61.8,
+      "budget": 0,
+      "lastEvent": "Item removed",
+      "lastEventAt": "2026-10-03T10:42:26-05:00",
+      "battery": 83,
+      "sessionId": "ORD-20261003-0820"
+    },
+    {
+      "id": "CART-0420",
+      "status": "OFFLINE",
+      "zone": "Charging bay",
+      "itemsCount": 0,
+      "total": 0,
+      "budget": 0,
+      "lastEvent": "Heartbeat lost",
+      "lastEventAt": "2026-10-03T10:16:40-05:00",
+      "battery": 12,
+      "sessionId": null
+    },
+    {
+      "id": "CART-0009",
+      "status": "AVAILABLE",
+      "zone": "Entrance",
+      "itemsCount": 0,
+      "total": 0,
+      "budget": 0,
+      "lastEvent": "Released",
+      "lastEventAt": "2026-10-03T10:38:40-05:00",
+      "battery": 96,
+      "sessionId": null
+    },
+    {
+      "id": "CART-0051",
+      "status": "IN_SESSION",
+      "zone": "Aisle 1 · Produce",
+      "itemsCount": 3,
+      "total": 22.0,
+      "budget": 120,
+      "lastEvent": "Item added",
+      "lastEventAt": "2026-10-03T10:42:05-05:00",
+      "battery": 72,
+      "sessionId": "ORD-20261003-0823"
+    },
+    {
+      "id": "CART-0063",
+      "status": "IN_SESSION",
+      "zone": "Aisle 5 · Beverages",
+      "itemsCount": 2,
+      "total": 7.6,
+      "budget": 60,
+      "lastEvent": "Budget set",
+      "lastEventAt": "2026-10-03T10:39:12-05:00",
+      "battery": 88,
+      "sessionId": "ORD-20261003-0824"
+    },
+    {
+      "id": "CART-0078",
+      "status": "AVAILABLE",
+      "zone": "Entrance",
+      "itemsCount": 0,
+      "total": 0,
+      "budget": 0,
+      "lastEvent": "Released",
+      "lastEventAt": "2026-10-03T10:30:02-05:00",
+      "battery": 100,
+      "sessionId": null
+    },
+    {
+      "id": "CART-0090",
+      "status": "IN_SESSION",
+      "zone": "Aisle 8 · Household",
+      "itemsCount": 2,
+      "total": 50.4,
+      "budget": 0,
+      "lastEvent": "Item added",
+      "lastEventAt": "2026-10-03T10:41:44-05:00",
+      "battery": 69,
+      "sessionId": "ORD-20261003-0826"
+    },
+    {
+      "id": "CART-0123",
+      "status": "PAID",
+      "zone": "Exit A",
+      "itemsCount": 3,
+      "total": 24.6,
+      "budget": 100,
+      "lastEvent": "Payment confirmed (Yape)",
+      "lastEventAt": "2026-10-03T10:37:55-05:00",
+      "battery": 51,
+      "sessionId": "ORD-20261003-0827"
+    },
+    {
+      "id": "CART-0177",
+      "status": "AVAILABLE",
+      "zone": "Entrance",
+      "itemsCount": 0,
+      "total": 0,
+      "budget": 0,
+      "lastEvent": "Released",
+      "lastEventAt": "2026-10-03T10:20:10-05:00",
+      "battery": 94,
+      "sessionId": null
+    },
+    {
+      "id": "CART-0230",
+      "status": "IN_SESSION",
+      "zone": "Aisle 3 · Seafood",
+      "itemsCount": 2,
+      "total": 29.8,
+      "budget": 150,
+      "lastEvent": "Item added",
+      "lastEventAt": "2026-10-03T10:42:10-05:00",
+      "battery": 60,
+      "sessionId": "ORD-20261003-0829"
+    },
+    {
+      "id": "CART-0299",
+      "status": "AVAILABLE",
+      "zone": "Charging bay",
+      "itemsCount": 0,
+      "total": 0,
+      "budget": 0,
+      "lastEvent": "Charging",
+      "lastEventAt": "2026-10-03T10:05:00-05:00",
+      "battery": 38,
+      "sessionId": null
+    }
+  ],
+  "shopping-sessions": [
+    {
+      "id": "ORD-20261003-0815",
+      "cartId": "CART-0427",
+      "shopper": "Camila R.",
+      "status": "ACTIVE",
+      "budget": 150,
+      "total": 76.6,
+      "expectedWeight": 9314,
+      "measuredWeight": 9726,
+      "weightTolerance": 266,
+      "startedAt": "2026-10-03T10:30:40-05:00",
+      "items": [
+        {
+          "sku": "SKU-10021",
+          "name": "Whole milk 1 L",
+          "rfidTag": "E200 3412 0127",
+          "quantity": 2,
+          "unitPrice": 4.9,
+          "nominalWeight": 1032
+        },
+        {
+          "sku": "SKU-20450",
+          "name": "Long-grain rice 5 kg",
+          "rfidTag": "E200 3412 0388",
+          "quantity": 1,
+          "unitPrice": 23.5,
+          "nominalWeight": 5020
+        },
+        {
+          "sku": "SKU-11873",
+          "name": "Free-range eggs x15",
+          "rfidTag": "E200 3412 0451",
+          "quantity": 1,
+          "unitPrice": 12.9,
+          "nominalWeight": 930
+        },
+        {
+          "sku": "SKU-30612",
+          "name": "Extra virgin olive oil 500 ml",
+          "rfidTag": "E200 3412 0533",
+          "quantity": 1,
+          "unitPrice": 21.9,
+          "nominalWeight": 690
+        },
+        {
+          "sku": "SKU-40105",
+          "name": "Whole wheat bread 600 g",
+          "rfidTag": "E200 3412 0692",
+          "quantity": 1,
+          "unitPrice": 8.5,
+          "nominalWeight": 610
+        }
+      ]
+    },
+    {
+      "id": "ORD-20261003-0816",
+      "cartId": "CART-0311",
+      "shopper": "Guest",
+      "status": "ACTIVE",
+      "budget": 0,
+      "total": 105.0,
+      "expectedWeight": 14723,
+      "measuredWeight": 14718,
+      "weightTolerance": 482,
+      "startedAt": "2026-10-03T10:30:40-05:00",
+      "items": [
+        {
+          "sku": "SKU-50311",
+          "name": "Chicken breast 1 kg",
+          "rfidTag": "E200 3412 0804",
+          "quantity": 1,
+          "unitPrice": 18.9,
+          "nominalWeight": 1010
+        },
+        {
+          "sku": "SKU-60077",
+          "name": "Ground coffee 250 g",
+          "rfidTag": "E200 3412 0919",
+          "quantity": 1,
+          "unitPrice": 16.4,
+          "nominalWeight": 262
+        },
+        {
+          "sku": "SKU-90401",
+          "name": "Laundry detergent 2 kg",
+          "rfidTag": "E200 3412 1388",
+          "quantity": 1,
+          "unitPrice": 27.9,
+          "nominalWeight": 2040
+        },
+        {
+          "sku": "SKU-80015",
+          "name": "Sparkling water 2 L",
+          "rfidTag": "E200 3412 1243",
+          "quantity": 3,
+          "unitPrice": 3.8,
+          "nominalWeight": 2090
+        },
+        {
+          "sku": "SKU-70210",
+          "name": "Bananas 1 kg",
+          "rfidTag": "E200 3412 1120",
+          "quantity": 1,
+          "unitPrice": 4.5,
+          "nominalWeight": 1000
+        },
+        {
+          "sku": "SKU-11290",
+          "name": "Greek yogurt 1 kg",
+          "rfidTag": "E200 3412 0718",
+          "quantity": 1,
+          "unitPrice": 11.2,
+          "nominalWeight": 1045
+        },
+        {
+          "sku": "SKU-10021",
+          "name": "Whole milk 1 L",
+          "rfidTag": "E200 3412 0127",
+          "quantity": 3,
+          "unitPrice": 4.9,
+          "nominalWeight": 1032
+        }
+      ]
+    },
+    {
+      "id": "ORD-20261003-0817",
+      "cartId": "CART-0102",
+      "shopper": "Jorge P.",
+      "status": "ACTIVE",
+      "budget": 150,
+      "total": 151.5,
+      "expectedWeight": 11240,
+      "measuredWeight": 11255,
+      "weightTolerance": 441,
+      "startedAt": "2026-10-03T10:30:40-05:00",
+      "items": [
+        {
+          "sku": "SKU-50311",
+          "name": "Chicken breast 1 kg",
+          "rfidTag": "E200 3412 0804",
+          "quantity": 2,
+          "unitPrice": 18.9,
+          "nominalWeight": 1010
+        },
+        {
+          "sku": "SKU-50488",
+          "name": "Salmon fillet 500 g",
+          "rfidTag": "E200 3412 1002",
+          "quantity": 2,
+          "unitPrice": 19.9,
+          "nominalWeight": 505
+        },
+        {
+          "sku": "SKU-90401",
+          "name": "Laundry detergent 2 kg",
+          "rfidTag": "E200 3412 1388",
+          "quantity": 1,
+          "unitPrice": 27.9,
+          "nominalWeight": 2040
+        },
+        {
+          "sku": "SKU-90517",
+          "name": "Toilet paper x12",
+          "rfidTag": "E200 3412 1442",
+          "quantity": 1,
+          "unitPrice": 22.5,
+          "nominalWeight": 1150
+        },
+        {
+          "sku": "SKU-20450",
+          "name": "Long-grain rice 5 kg",
+          "rfidTag": "E200 3412 0388",
+          "quantity": 1,
+          "unitPrice": 23.5,
+          "nominalWeight": 5020
+        }
+      ]
+    },
+    {
+      "id": "ORD-20261003-0818",
+      "cartId": "CART-0215",
+      "shopper": "Ana T.",
+      "status": "ACTIVE",
+      "budget": 80,
+      "total": 26.3,
+      "expectedWeight": 2572,
+      "measuredWeight": 2561,
+      "weightTolerance": 114,
+      "startedAt": "2026-10-03T10:30:40-05:00",
+      "items": [
+        {
+          "sku": "SKU-40105",
+          "name": "Whole wheat bread 600 g",
+          "rfidTag": "E200 3412 0692",
+          "quantity": 1,
+          "unitPrice": 8.5,
+          "nominalWeight": 610
+        },
+        {
+          "sku": "SKU-11873",
+          "name": "Free-range eggs x15",
+          "rfidTag": "E200 3412 0451",
+          "quantity": 1,
+          "unitPrice": 12.9,
+          "nominalWeight": 930
+        },
+        {
+          "sku": "SKU-10021",
+          "name": "Whole milk 1 L",
+          "rfidTag": "E200 3412 0127",
+          "quantity": 1,
+          "unitPrice": 4.9,
+          "nominalWeight": 1032
+        }
+      ]
+    },
+    {
+      "id": "ORD-20261003-0819",
+      "cartId": "CART-0388",
+      "shopper": "Luis M.",
+      "status": "PAID",
+      "budget": 200,
+      "total": 169.8,
+      "expectedWeight": 17352,
+      "measuredWeight": 17349,
+      "weightTolerance": 476,
+      "startedAt": "2026-10-03T10:30:40-05:00",
+      "items": [
+        {
+          "sku": "SKU-20450",
+          "name": "Long-grain rice 5 kg",
+          "rfidTag": "E200 3412 0388",
+          "quantity": 2,
+          "unitPrice": 23.5,
+          "nominalWeight": 5020
+        },
+        {
+          "sku": "SKU-90401",
+          "name": "Laundry detergent 2 kg",
+          "rfidTag": "E200 3412 1388",
+          "quantity": 1,
+          "unitPrice": 27.9,
+          "nominalWeight": 2040
+        },
+        {
+          "sku": "SKU-90517",
+          "name": "Toilet paper x12",
+          "rfidTag": "E200 3412 1442",
+          "quantity": 1,
+          "unitPrice": 22.5,
+          "nominalWeight": 1150
+        },
+        {
+          "sku": "SKU-50311",
+          "name": "Chicken breast 1 kg",
+          "rfidTag": "E200 3412 0804",
+          "quantity": 1,
+          "unitPrice": 18.9,
+          "nominalWeight": 1010
+        },
+        {
+          "sku": "SKU-30612",
+          "name": "Extra virgin olive oil 500 ml",
+          "rfidTag": "E200 3412 0533",
+          "quantity": 1,
+          "unitPrice": 21.9,
+          "nominalWeight": 690
+        },
+        {
+          "sku": "SKU-60077",
+          "name": "Ground coffee 250 g",
+          "rfidTag": "E200 3412 0919",
+          "quantity": 1,
+          "unitPrice": 16.4,
+          "nominalWeight": 262
+        },
+        {
+          "sku": "SKU-80122",
+          "name": "Orange juice 1 L",
+          "rfidTag": "E200 3412 1309",
+          "quantity": 2,
+          "unitPrice": 7.6,
+          "nominalWeight": 1080
+        }
+      ]
+    },
+    {
+      "id": "ORD-20261003-0820",
+      "cartId": "CART-0144",
+      "shopper": "Guest",
+      "status": "ACTIVE",
+      "budget": 0,
+      "total": 61.8,
+      "expectedWeight": 5972,
+      "measuredWeight": 5977,
+      "weightTolerance": 132,
+      "startedAt": "2026-10-03T10:30:40-05:00",
+      "items": [
+        {
+          "sku": "SKU-20450",
+          "name": "Long-grain rice 5 kg",
+          "rfidTag": "E200 3412 0388",
+          "quantity": 1,
+          "unitPrice": 23.5,
+          "nominalWeight": 5020
+        },
+        {
+          "sku": "SKU-30612",
+          "name": "Extra virgin olive oil 500 ml",
+          "rfidTag": "E200 3412 0533",
+          "quantity": 1,
+          "unitPrice": 21.9,
+          "nominalWeight": 690
+        },
+        {
+          "sku": "SKU-60077",
+          "name": "Ground coffee 250 g",
+          "rfidTag": "E200 3412 0919",
+          "quantity": 1,
+          "unitPrice": 16.4,
+          "nominalWeight": 262
+        }
+      ]
+    },
+    {
+      "id": "ORD-20261003-0823",
+      "cartId": "CART-0051",
+      "shopper": "Rosa V.",
+      "status": "ACTIVE",
+      "budget": 120,
+      "total": 22.0,
+      "expectedWeight": 3080,
+      "measuredWeight": 3066,
+      "weightTolerance": 232,
+      "startedAt": "2026-10-03T10:30:40-05:00",
+      "items": [
+        {
+          "sku": "SKU-70210",
+          "name": "Bananas 1 kg",
+          "rfidTag": "E200 3412 1120",
+          "quantity": 1,
+          "unitPrice": 4.5,
+          "nominalWeight": 1000
+        },
+        {
+          "sku": "SKU-70344",
+          "name": "Avocado Hass 1 kg",
+          "rfidTag": "E200 3412 1187",
+          "quantity": 1,
+          "unitPrice": 9.9,
+          "nominalWeight": 1000
+        },
+        {
+          "sku": "SKU-80122",
+          "name": "Orange juice 1 L",
+          "rfidTag": "E200 3412 1309",
+          "quantity": 1,
+          "unitPrice": 7.6,
+          "nominalWeight": 1080
+        }
+      ]
+    },
+    {
+      "id": "ORD-20261003-0824",
+      "cartId": "CART-0063",
+      "shopper": "Guest",
+      "status": "ACTIVE",
+      "budget": 60,
+      "total": 7.6,
+      "expectedWeight": 4180,
+      "measuredWeight": 4167,
+      "weightTolerance": 84,
+      "startedAt": "2026-10-03T10:30:40-05:00",
+      "items": [
+        {
+          "sku": "SKU-80015",
+          "name": "Sparkling water 2 L",
+          "rfidTag": "E200 3412 1243",
+          "quantity": 2,
+          "unitPrice": 3.8,
+          "nominalWeight": 2090
+        }
+      ]
+    },
+    {
+      "id": "ORD-20261003-0826",
+      "cartId": "CART-0090",
+      "shopper": "Pedro C.",
+      "status": "ACTIVE",
+      "budget": 0,
+      "total": 50.4,
+      "expectedWeight": 3190,
+      "measuredWeight": 3201,
+      "weightTolerance": 98,
+      "startedAt": "2026-10-03T10:30:40-05:00",
+      "items": [
+        {
+          "sku": "SKU-90517",
+          "name": "Toilet paper x12",
+          "rfidTag": "E200 3412 1442",
+          "quantity": 1,
+          "unitPrice": 22.5,
+          "nominalWeight": 1150
+        },
+        {
+          "sku": "SKU-90401",
+          "name": "Laundry detergent 2 kg",
+          "rfidTag": "E200 3412 1388",
+          "quantity": 1,
+          "unitPrice": 27.9,
+          "nominalWeight": 2040
+        }
+      ]
+    },
+    {
+      "id": "ORD-20261003-0827",
+      "cartId": "CART-0123",
+      "shopper": "Lucía F.",
+      "status": "PAID",
+      "budget": 100,
+      "total": 24.6,
+      "expectedWeight": 2687,
+      "measuredWeight": 2689,
+      "weightTolerance": 99,
+      "startedAt": "2026-10-03T10:30:40-05:00",
+      "items": [
+        {
+          "sku": "SKU-10021",
+          "name": "Whole milk 1 L",
+          "rfidTag": "E200 3412 0127",
+          "quantity": 1,
+          "unitPrice": 4.9,
+          "nominalWeight": 1032
+        },
+        {
+          "sku": "SKU-11290",
+          "name": "Greek yogurt 1 kg",
+          "rfidTag": "E200 3412 0718",
+          "quantity": 1,
+          "unitPrice": 11.2,
+          "nominalWeight": 1045
+        },
+        {
+          "sku": "SKU-40105",
+          "name": "Whole wheat bread 600 g",
+          "rfidTag": "E200 3412 0692",
+          "quantity": 1,
+          "unitPrice": 8.5,
+          "nominalWeight": 610
+        }
+      ]
+    },
+    {
+      "id": "ORD-20261003-0829",
+      "cartId": "CART-0230",
+      "shopper": "Mario S.",
+      "status": "ACTIVE",
+      "budget": 150,
+      "total": 29.8,
+      "expectedWeight": 1505,
+      "measuredWeight": 1493,
+      "weightTolerance": 140,
+      "startedAt": "2026-10-03T10:30:40-05:00",
+      "items": [
+        {
+          "sku": "SKU-50488",
+          "name": "Salmon fillet 500 g",
+          "rfidTag": "E200 3412 1002",
+          "quantity": 1,
+          "unitPrice": 19.9,
+          "nominalWeight": 505
+        },
+        {
+          "sku": "SKU-70344",
+          "name": "Avocado Hass 1 kg",
+          "rfidTag": "E200 3412 1187",
+          "quantity": 1,
+          "unitPrice": 9.9,
+          "nominalWeight": 1000
+        }
+      ]
+    }
+  ],
+  "cart-events": [
+    {
+      "id": 1,
+      "cartId": "CART-0427",
+      "type": "WEIGHT",
+      "occurredAt": "2026-10-03T10:42:18-05:00",
+      "title": "Weight +412 g without RFID read",
+      "detail": "Payment paused",
+      "tone": "WARNING"
+    },
+    {
+      "id": 2,
+      "cartId": "CART-0427",
+      "type": "ITEM_ADDED",
+      "occurredAt": "2026-10-03T10:41:55-05:00",
+      "title": "Added Whole wheat bread 600 g",
+      "detail": "+S/ 8.50 · 610 g ✓",
+      "tone": "OK"
+    },
+    {
+      "id": 3,
+      "cartId": "CART-0427",
+      "type": "ITEM_ADDED",
+      "occurredAt": "2026-10-03T10:40:12-05:00",
+      "title": "Added Extra virgin olive oil 500 ml",
+      "detail": "+S/ 21.90 · 690 g ✓",
+      "tone": "OK"
+    },
+    {
+      "id": 4,
+      "cartId": "CART-0427",
+      "type": "ITEM_ADDED",
+      "occurredAt": "2026-10-03T10:38:47-05:00",
+      "title": "Added Free-range eggs x15",
+      "detail": "+S/ 12.90 · 930 g ✓",
+      "tone": "OK"
+    },
+    {
+      "id": 5,
+      "cartId": "CART-0427",
+      "type": "BUDGET",
+      "occurredAt": "2026-10-03T10:31:02-05:00",
+      "title": "Budget set to S/ 150.00",
+      "detail": "via mobile app",
+      "tone": "INFO"
+    },
+    {
+      "id": 6,
+      "cartId": "CART-0427",
+      "type": "SESSION",
+      "occurredAt": "2026-10-03T10:30:40-05:00",
+      "title": "Session started",
+      "detail": "Linked to Camila R. (app)",
+      "tone": "INFO"
+    },
+    {
+      "id": 7,
+      "cartId": "CART-0311",
+      "type": "GEOFENCE",
+      "occurredAt": "2026-10-03T10:41:30-05:00",
+      "title": "Crossed Exit B without clearance",
+      "detail": "Wheels locked",
+      "tone": "CRITICAL"
+    },
+    {
+      "id": 8,
+      "cartId": "CART-0311",
+      "type": "SESSION",
+      "occurredAt": "2026-10-03T10:12:05-05:00",
+      "title": "Session started",
+      "detail": "Guest session",
+      "tone": "INFO"
+    },
+    {
+      "id": 9,
+      "cartId": "CART-0102",
+      "type": "BUDGET",
+      "occurredAt": "2026-10-03T10:41:58-05:00",
+      "title": "Budget 95% reached",
+      "detail": "S/ 143.00 of S/ 150.00",
+      "tone": "WARNING"
+    },
+    {
+      "id": 10,
+      "cartId": "CART-0388",
+      "type": "PAYMENT",
+      "occurredAt": "2026-10-03T10:40:38-05:00",
+      "title": "Payment confirmed (Plin)",
+      "detail": "Exit clearance for 15 min",
+      "tone": "OK"
+    }
+  ],
+  "alerts": [
+    {
+      "id": 1,
+      "cartId": "CART-0311",
+      "type": "GEOFENCE",
+      "severity": "CRITICAL",
+      "title": "Geofence breach · wheels locked",
+      "description": "CART-0311 reached Exit B with order unpaid (S/ 105.00, 11 items).",
+      "zone": "Exit B",
+      "createdAt": "2026-10-03T10:41:30-05:00",
+      "status": "OPEN"
+    },
+    {
+      "id": 2,
+      "cartId": "CART-0427",
+      "type": "WEIGHT",
+      "severity": "WARNING",
+      "title": "Weight discrepancy",
+      "description": "CART-0427 measured +412 g without an RFID read. Payment paused.",
+      "zone": "Aisle 4",
+      "createdAt": "2026-10-03T10:42:18-05:00",
+      "status": "OPEN"
+    },
+    {
+      "id": 3,
+      "cartId": "CART-0215",
+      "type": "RFID",
+      "severity": "WARNING",
+      "title": "Unreadable RFID tag",
+      "description": "CART-0215 detected mass with a damaged tag (SKU unknown).",
+      "zone": "Aisle 2",
+      "createdAt": "2026-10-03T10:39:40-05:00",
+      "status": "OPEN"
+    },
+    {
+      "id": 4,
+      "cartId": "CART-0420",
+      "type": "DEVICE",
+      "severity": "INFO",
+      "title": "Cart offline",
+      "description": "CART-0420 lost heartbeat. Last battery reading 12%.",
+      "zone": "Charging bay",
+      "createdAt": "2026-10-03T10:16:40-05:00",
+      "status": "OPEN"
+    },
+    {
+      "id": 5,
+      "cartId": "CART-0311",
+      "type": "RFID",
+      "severity": "WARNING",
+      "title": "Unreadable RFID tag",
+      "description": "CART-0311: resolved by floor staff.",
+      "zone": "Aisle 9",
+      "createdAt": "2026-10-03T08:00:00-05:00",
+      "status": "RESOLVED"
+    },
+    {
+      "id": 6,
+      "cartId": "CART-0311",
+      "type": "WEIGHT",
+      "severity": "WARNING",
+      "title": "Weight discrepancy",
+      "description": "CART-0311: resolved by floor staff.",
+      "zone": "Aisle 2",
+      "createdAt": "2026-10-03T08:07:00-05:00",
+      "status": "RESOLVED"
+    },
+    {
+      "id": 7,
+      "cartId": "CART-0177",
+      "type": "GEOFENCE",
+      "severity": "WARNING",
+      "title": "Geofence breach",
+      "description": "CART-0177: resolved by floor staff.",
+      "zone": "Aisle 2",
+      "createdAt": "2026-10-03T08:14:00-05:00",
+      "status": "RESOLVED"
+    },
+    {
+      "id": 8,
+      "cartId": "CART-0102",
+      "type": "WEIGHT",
+      "severity": "WARNING",
+      "title": "Weight discrepancy",
+      "description": "CART-0102: resolved by floor staff.",
+      "zone": "Aisle 9",
+      "createdAt": "2026-10-03T09:21:00-05:00",
+      "status": "RESOLVED"
+    },
+    {
+      "id": 9,
+      "cartId": "CART-0311",
+      "type": "GEOFENCE",
+      "severity": "WARNING",
+      "title": "Geofence breach",
+      "description": "CART-0311: resolved by floor staff.",
+      "zone": "Aisle 2",
+      "createdAt": "2026-10-03T09:28:00-05:00",
+      "status": "RESOLVED"
+    },
+    {
+      "id": 10,
+      "cartId": "CART-0311",
+      "type": "WEIGHT",
+      "severity": "WARNING",
+      "title": "Weight discrepancy",
+      "description": "CART-0311: resolved by floor staff.",
+      "zone": "Aisle 7",
+      "createdAt": "2026-10-03T09:35:00-05:00",
+      "status": "RESOLVED"
+    },
+    {
+      "id": 11,
+      "cartId": "CART-0009",
+      "type": "WEIGHT",
+      "severity": "WARNING",
+      "title": "Weight discrepancy",
+      "description": "CART-0009: resolved by floor staff.",
+      "zone": "Aisle 1",
+      "createdAt": "2026-10-03T10:42:00-05:00",
+      "status": "RESOLVED"
+    },
+    {
+      "id": 12,
+      "cartId": "CART-0063",
+      "type": "WEIGHT",
+      "severity": "WARNING",
+      "title": "Weight discrepancy",
+      "description": "CART-0063: resolved by floor staff.",
+      "zone": "Aisle 7",
+      "createdAt": "2026-10-03T10:49:00-05:00",
+      "status": "RESOLVED"
+    },
+    {
+      "id": 13,
+      "cartId": "CART-0215",
+      "type": "WEIGHT",
+      "severity": "WARNING",
+      "title": "Weight discrepancy",
+      "description": "CART-0215: resolved by floor staff.",
+      "zone": "Aisle 5",
+      "createdAt": "2026-10-03T10:56:00-05:00",
+      "status": "RESOLVED"
+    },
+    {
+      "id": 14,
+      "cartId": "CART-0215",
+      "type": "WEIGHT",
+      "severity": "WARNING",
+      "title": "Weight discrepancy",
+      "description": "CART-0215: resolved by floor staff.",
+      "zone": "Aisle 4",
+      "createdAt": "2026-10-03T11:03:00-05:00",
+      "status": "RESOLVED"
+    },
+    {
+      "id": 15,
+      "cartId": "CART-0215",
+      "type": "RFID",
+      "severity": "WARNING",
+      "title": "Unreadable RFID tag",
+      "description": "CART-0215: resolved by floor staff.",
+      "zone": "Aisle 9",
+      "createdAt": "2026-10-03T11:10:00-05:00",
+      "status": "RESOLVED"
+    },
+    {
+      "id": 16,
+      "cartId": "CART-0311",
+      "type": "WEIGHT",
+      "severity": "WARNING",
+      "title": "Weight discrepancy",
+      "description": "CART-0311: resolved by floor staff.",
+      "zone": "Aisle 4",
+      "createdAt": "2026-10-03T11:17:00-05:00",
+      "status": "RESOLVED"
+    },
+    {
+      "id": 17,
+      "cartId": "CART-0177",
+      "type": "GEOFENCE",
+      "severity": "WARNING",
+      "title": "Geofence breach",
+      "description": "CART-0177: resolved by floor staff.",
+      "zone": "Aisle 6",
+      "createdAt": "2026-10-03T12:24:00-05:00",
+      "status": "RESOLVED"
+    },
+    {
+      "id": 18,
+      "cartId": "CART-0230",
+      "type": "GEOFENCE",
+      "severity": "WARNING",
+      "title": "Geofence breach",
+      "description": "CART-0230: resolved by floor staff.",
+      "zone": "Aisle 6",
+      "createdAt": "2026-10-03T12:31:00-05:00",
+      "status": "RESOLVED"
+    },
+    {
+      "id": 19,
+      "cartId": "CART-0009",
+      "type": "RFID",
+      "severity": "WARNING",
+      "title": "Unreadable RFID tag",
+      "description": "CART-0009: resolved by floor staff.",
+      "zone": "Aisle 3",
+      "createdAt": "2026-10-03T12:38:00-05:00",
+      "status": "RESOLVED"
+    },
+    {
+      "id": 20,
+      "cartId": "CART-0102",
+      "type": "WEIGHT",
+      "severity": "WARNING",
+      "title": "Weight discrepancy",
+      "description": "CART-0102: resolved by floor staff.",
+      "zone": "Aisle 5",
+      "createdAt": "2026-10-03T13:45:00-05:00",
+      "status": "RESOLVED"
+    },
+    {
+      "id": 21,
+      "cartId": "CART-0078",
+      "type": "GEOFENCE",
+      "severity": "WARNING",
+      "title": "Geofence breach",
+      "description": "CART-0078: resolved by floor staff.",
+      "zone": "Aisle 8",
+      "createdAt": "2026-10-03T13:52:00-05:00",
+      "status": "RESOLVED"
+    }
+  ],
+  "products": [
+    {
+      "id": "SKU-10021",
+      "name": "Whole milk 1 L",
+      "category": "Dairy",
+      "price": 4.9,
+      "nominalWeight": 1032,
+      "tolerance": 3,
+      "rfidPrefix": "E200 3412 0127",
+      "icon": "water_full",
+      "updatedAt": "2026-10-03T08:15:00-05:00"
+    },
+    {
+      "id": "SKU-20450",
+      "name": "Long-grain rice 5 kg",
+      "category": "Grocery",
+      "price": 23.5,
+      "nominalWeight": 5020,
+      "tolerance": 2,
+      "rfidPrefix": "E200 3412 0388",
+      "icon": "rice_bowl",
+      "updatedAt": "2026-10-03T08:15:00-05:00"
+    },
+    {
+      "id": "SKU-11873",
+      "name": "Free-range eggs x15",
+      "category": "Dairy",
+      "price": 12.9,
+      "nominalWeight": 930,
+      "tolerance": 5,
+      "rfidPrefix": "E200 3412 0451",
+      "icon": "egg",
+      "updatedAt": "2026-10-03T08:15:00-05:00"
+    },
+    {
+      "id": "SKU-30612",
+      "name": "Extra virgin olive oil 500 ml",
+      "category": "Grocery",
+      "price": 21.9,
+      "nominalWeight": 690,
+      "tolerance": 3,
+      "rfidPrefix": "E200 3412 0533",
+      "icon": "water_drop",
+      "updatedAt": "2026-10-03T08:15:00-05:00"
+    },
+    {
+      "id": "SKU-40105",
+      "name": "Whole wheat bread 600 g",
+      "category": "Bakery",
+      "price": 8.5,
+      "nominalWeight": 610,
+      "tolerance": 6,
+      "rfidPrefix": "E200 3412 0692",
+      "icon": "bakery_dining",
+      "updatedAt": "2026-10-03T08:15:00-05:00"
+    },
+    {
+      "id": "SKU-11290",
+      "name": "Greek yogurt 1 kg",
+      "category": "Dairy",
+      "price": 11.2,
+      "nominalWeight": 1045,
+      "tolerance": 3,
+      "rfidPrefix": "E200 3412 0718",
+      "icon": "icecream",
+      "updatedAt": "2026-10-03T08:15:00-05:00"
+    },
+    {
+      "id": "SKU-50311",
+      "name": "Chicken breast 1 kg",
+      "category": "Meat",
+      "price": 18.9,
+      "nominalWeight": 1010,
+      "tolerance": 8,
+      "rfidPrefix": "E200 3412 0804",
+      "icon": "kebab_dining",
+      "updatedAt": "2026-10-03T08:15:00-05:00"
+    },
+    {
+      "id": "SKU-60077",
+      "name": "Ground coffee 250 g",
+      "category": "Grocery",
+      "price": 16.4,
+      "nominalWeight": 262,
+      "tolerance": 4,
+      "rfidPrefix": "E200 3412 0919",
+      "icon": "coffee",
+      "updatedAt": "2026-10-03T08:15:00-05:00"
+    },
+    {
+      "id": "SKU-50488",
+      "name": "Salmon fillet 500 g",
+      "category": "Seafood",
+      "price": 19.9,
+      "nominalWeight": 505,
+      "tolerance": 8,
+      "rfidPrefix": "E200 3412 1002",
+      "icon": "set_meal",
+      "updatedAt": "2026-10-03T08:15:00-05:00"
+    },
+    {
+      "id": "SKU-70210",
+      "name": "Bananas 1 kg",
+      "category": "Produce",
+      "price": 4.5,
+      "nominalWeight": 1000,
+      "tolerance": 10,
+      "rfidPrefix": "E200 3412 1120",
+      "icon": "nutrition",
+      "updatedAt": "2026-10-03T08:15:00-05:00"
+    },
+    {
+      "id": "SKU-70344",
+      "name": "Avocado Hass 1 kg",
+      "category": "Produce",
+      "price": 9.9,
+      "nominalWeight": 1000,
+      "tolerance": 10,
+      "rfidPrefix": "E200 3412 1187",
+      "icon": "eco",
+      "updatedAt": "2026-10-03T08:15:00-05:00"
+    },
+    {
+      "id": "SKU-80015",
+      "name": "Sparkling water 2 L",
+      "category": "Beverages",
+      "price": 3.8,
+      "nominalWeight": 2090,
+      "tolerance": 2,
+      "rfidPrefix": "E200 3412 1243",
+      "icon": "local_drink",
+      "updatedAt": "2026-10-03T08:15:00-05:00"
+    },
+    {
+      "id": "SKU-80122",
+      "name": "Orange juice 1 L",
+      "category": "Beverages",
+      "price": 7.6,
+      "nominalWeight": 1080,
+      "tolerance": 3,
+      "rfidPrefix": "E200 3412 1309",
+      "icon": "emoji_food_beverage",
+      "updatedAt": "2026-10-03T08:15:00-05:00"
+    },
+    {
+      "id": "SKU-90401",
+      "name": "Laundry detergent 2 kg",
+      "category": "Household",
+      "price": 27.9,
+      "nominalWeight": 2040,
+      "tolerance": 2,
+      "rfidPrefix": "E200 3412 1388",
+      "icon": "local_laundry_service",
+      "updatedAt": "2026-10-03T08:15:00-05:00"
+    },
+    {
+      "id": "SKU-90517",
+      "name": "Toilet paper x12",
+      "category": "Household",
+      "price": 22.5,
+      "nominalWeight": 1150,
+      "tolerance": 5,
+      "rfidPrefix": "E200 3412 1442",
+      "icon": "sanitizer",
+      "updatedAt": "2026-10-03T08:15:00-05:00"
+    }
+  ],
+  "session-stats": [
+    {
+      "id": 1,
+      "hour": "08:00",
+      "sessions": 4
+    },
+    {
+      "id": 2,
+      "hour": "08:30",
+      "sessions": 6
+    },
+    {
+      "id": 3,
+      "hour": "09:00",
+      "sessions": 9
+    },
+    {
+      "id": 4,
+      "hour": "09:30",
+      "sessions": 14
+    },
+    {
+      "id": 5,
+      "hour": "10:00",
+      "sessions": 22
+    },
+    {
+      "id": 6,
+      "hour": "10:30",
+      "sessions": 26
+    },
+    {
+      "id": 7,
+      "hour": "11:00",
+      "sessions": 24
+    },
+    {
+      "id": 8,
+      "hour": "11:30",
+      "sessions": 19
+    },
+    {
+      "id": 9,
+      "hour": "12:00",
+      "sessions": 17
+    },
+    {
+      "id": 10,
+      "hour": "12:30",
+      "sessions": 21
+    },
+    {
+      "id": 11,
+      "hour": "13:00",
+      "sessions": 28
+    },
+    {
+      "id": 12,
+      "hour": "13:30",
+      "sessions": 32
+    },
+    {
+      "id": 13,
+      "hour": "14:00",
+      "sessions": 30
+    }
+  ],
+  "audit-logs": []
+}
