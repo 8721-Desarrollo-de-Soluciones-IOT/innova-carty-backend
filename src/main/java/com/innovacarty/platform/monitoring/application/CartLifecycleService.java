@@ -89,7 +89,8 @@ public class CartLifecycleService {
         session.setShopper("Guest");
         session.setStatus(SessionStatus.ACTIVE);
         session.setStartedAt(now);
-        sessions.save(session);
+        // The id is assigned, so save() merges: keep working on the managed copy or the changes are lost
+        session = sessions.save(session);
 
         cart.setSessionId(session.getId());
         cart.setStatus(CartStatus.IN_SESSION);
