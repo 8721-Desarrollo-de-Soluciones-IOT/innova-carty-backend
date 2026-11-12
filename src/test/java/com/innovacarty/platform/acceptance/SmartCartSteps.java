@@ -41,6 +41,8 @@ public class SmartCartSteps {
     private ObjectMapper json;
     @Value("${innovacarty.device.api-key}")
     private String deviceKey;
+    @Value("${innovacarty.payments.webhook-secret}")
+    private String webhookSecret;
 
     private String cartId;
     private String shopperToken;
@@ -151,6 +153,36 @@ public class SmartCartSteps {
         response = call(get("/api/v1/me/sessions").header("Authorization", "Bearer " + shopperToken));
     }
 
+    // ------------------------------------------------------------------ payment provider (webhook)
+
+    @Given("el proveedor confirma el pago {string} del evento {string} por S\\/ {double}")
+    public void theProviderConfirms(String provider, String eventId, double amount) throws Exception {
+        webhook(provider, eventId, amount, "APPROVED", webhookSecret);
+    }
+
+    @When("el proveedor rechaza el pago {string} del evento {string}")
+    public void theProviderRejects(String provider, String eventId) throws Exception {
+        webhook(provider, eventId, 0, "REJECTED", webhookSecret);
+    }
+
+    @When("llega una notificación de pago con el secreto {string}")
+    public void aNotificationWithSecret(String secret) throws Exception {
+        webhook("YAPE", "evt-sin-secreto", 9.80, "APPROVED", secret);
+    }
+
+    @Then("el webhook responde {string}")
+    public void theWebhookAnswers(String result) throws Exception {
+        assertThat(response.getStatus()).isEqualTo(200);
+        assertThat(read(response, "$.result", String.class)).isEqualTo(result);
+    }
+
+    @Then("el carrito tiene {int} pago registrado")
+    public void theCartHasPayments(int count) throws Exception {
+        MockHttpServletResponse list = call(get("/api/v1/payments").param("cartId", cartId)
+                .header("Authorization", "Bearer " + adminToken()));
+        assertThat(read(list, "$.length()", Integer.class)).isEqualTo(count);
+    }
+
     // ------------------------------------------------------------------ Web Console (admin)
 
     @When("el administrador consulta las órdenes de compra del carrito")
@@ -190,6 +222,19 @@ public class SmartCartSteps {
         body.put("battery", 90);
         body.put("zone", "Pasillo 3");
         response = call(put("/api/v1/devices/carts/" + cartId + "/state").header("X-Device-Key", key)
+                .contentType(MediaType.APPLICATION_JSON).content(json.writeValueAsString(body)));
+    }
+
+    /** The event id gets the cart id so every scenario sends its own provider events. */
+    private void webhook(String provider, String eventId, double amount, String status, String secret) throws Exception {
+        Map<String, Object> body = new LinkedHashMap<>();
+        body.put("eventId", eventId + "-" + cartId);
+        body.put("provider", provider);
+        body.put("cartId", cartId);
+        body.put("operationCode", "12345678");
+        body.put("amount", amount);
+        body.put("status", status);
+        response = call(post("/api/v1/payments/webhook").header("X-Webhook-Secret", secret)
                 .contentType(MediaType.APPLICATION_JSON).content(json.writeValueAsString(body)));
     }
 

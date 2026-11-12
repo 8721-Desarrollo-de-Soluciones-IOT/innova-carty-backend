@@ -5,6 +5,8 @@ import com.innovacarty.platform.monitoring.domain.model.Cart;
 import com.innovacarty.platform.monitoring.domain.model.CartStatus;
 import com.innovacarty.platform.monitoring.domain.model.SessionStatus;
 import com.innovacarty.platform.monitoring.domain.model.ShoppingSession;
+import com.innovacarty.platform.payment.application.PaymentService.WebhookOutcome;
+import com.innovacarty.platform.payment.application.PaymentService.WebhookResult;
 import com.innovacarty.platform.payment.domain.model.Payment;
 import com.innovacarty.platform.payment.infrastructure.persistence.PaymentRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,6 +18,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.Optional;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.ArgumentMatchers.any;
@@ -24,6 +28,7 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.lenient;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 /** Unit tests of the simulated Yape / Plin / card payments (US08, TS03). */
 @ExtendWith(MockitoExtension.class)
@@ -95,6 +100,48 @@ class PaymentServiceTest {
                 .thenThrow(new ResponseStatusException(HttpStatus.CONFLICT, "Payment paused: weight discrepancy, ask a supervisor"));
 
         assertStatus(() -> paymentService.pay("CART-0427", "YAPE", 7L, true), HttpStatus.CONFLICT);
+        verify(payments, never()).save(any());
+    }
+
+    // ------------------------------------------------------------------ TS03 webhook
+
+    @Test
+    void theProviderConfirmationPaysTheOrder() {
+        WebhookOutcome outcome = paymentService.confirmExternal("evt-001", "plin", "CART-0427", "55501234", 9.80, "approved");
+
+        assertThat(outcome.result()).isEqualTo(WebhookResult.PAYMENT_CREATED);
+        assertThat(outcome.payment().getOperationCode()).isEqualTo("55501234");
+        assertThat(outcome.payment().getExternalEventId()).isEqualTo("evt-001");
+        assertThat(outcome.payment().getUserId()).isEqualTo(7L);
+        verify(payments).save(outcome.payment());
+        verify(lifecycle).markPaid(cart, session, "Plin", "55501234");
+    }
+
+    @Test
+    void aRepeatedProviderEventDoesNotPayTwice() {
+        Payment previous = new Payment();
+        when(payments.findByExternalEventId("evt-001")).thenReturn(Optional.of(previous));
+
+        WebhookOutcome outcome = paymentService.confirmExternal("evt-001", "YAPE", "CART-0427", "1", 9.80, "APPROVED");
+
+        assertThat(outcome.result()).isEqualTo(WebhookResult.DUPLICATE);
+        assertThat(outcome.payment()).isSameAs(previous);
+        verify(payments, never()).save(any());
+        verify(lifecycle, never()).markPaid(any(), any(), anyString(), anyString());
+    }
+
+    @Test
+    void aRejectedPaymentIsOnlyRecorded() {
+        WebhookOutcome outcome = paymentService.confirmExternal("evt-002", "YAPE", "CART-0427", null, null, "REJECTED");
+
+        assertThat(outcome.result()).isEqualTo(WebhookResult.REJECTION_RECORDED);
+        verify(lifecycle).record(eq("CART-0427"), eq("PAYMENT"), anyString(), anyString(), any());
+        verify(payments, never()).save(any());
+    }
+
+    @Test
+    void theAmountMustMatchTheOrderTotal() {
+        assertStatus(() -> paymentService.confirmExternal("evt-003", "YAPE", "CART-0427", "1", 5.00, "APPROVED"), HttpStatus.CONFLICT);
         verify(payments, never()).save(any());
     }
 
