@@ -16,3 +16,5 @@ services:
         generateValue: true
       - key: DEVICE_API_KEY
         sync: false
+      - key: PAYMENT_WEBHOOK_SECRET
+        sync: false

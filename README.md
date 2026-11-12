@@ -36,6 +36,7 @@ src/main/java/com/innovacarty/platform/
 | Products | `GET /products`, `GET /products/{id}` (any user), `POST`, `PATCH`, `DELETE` (admin) | Admin / Shopper |
 | Stores | `GET /stores`, `GET /stores/{id}` | Admin |
 | Payments | `POST /payments` `{cartId, method: YAPE \| PLIN \| CARD}`, `GET /payments?cartId=` | Shopper / Admin |
+| Payment webhook | `POST /payments/webhook` `{eventId, provider, cartId, operationCode, amount, status: APPROVED \| REJECTED}` | Payment provider (`X-Webhook-Secret`) |
 | My cart | `GET /me/cart`, `POST /me/cart` `{cartId}`, `PATCH /me/cart` `{budget}`, `DELETE /me/cart`, `GET /me/sessions`, `GET /me/payments` | Shopper |
 | Devices | `GET /devices/carts/{id}`, `PUT /devices/carts/{id}/state`, `POST /devices/carts/{id}/events` | ESP32 (`X-Device-Key`) |
 
@@ -54,6 +55,7 @@ Web Console ─────────┴── /carts, /alerts…▶ ┘
 1. The cart sends the tags it read (`PUT /devices/carts/CART-0427/state`). The API matches them with the catalog, opens the session and recalculates the total and the expected weight.
 2. The shopper scans the QR on the cart screen. The app calls `POST /me/cart` and shows the items live.
 3. The shopper pays with Yape / Plin / card (simulated, `POST /payments`). The cart reads `PAID` in its next poll and opens the exit.
+   When the provider confirms the payment on its side, it calls `POST /payments/webhook` with the `X-Webhook-Secret` header. An `APPROVED` event pays the order (only if the amount matches the total), a `REJECTED` event is saved in the cart history, and a repeated `eventId` is ignored.
 4. If the cart reaches the exit without paying, it sends `GEOFENCE`. The API locks it and raises a critical alert. The supervisor unlocks it from the console, the app (PIN) or the key fob.
 
 ## Run locally (IntelliJ IDEA or terminal)

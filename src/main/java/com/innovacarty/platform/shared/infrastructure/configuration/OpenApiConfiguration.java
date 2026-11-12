@@ -20,11 +20,13 @@ public class OpenApiConfiguration {
                         .version("v1")
                         .description("RESTful API of Innova Carty: smart carts (ESP32), Web Console and mobile app. "
                                 + "Use POST /api/v1/authentication/sign-in and paste the token in Authorize. "
-                                + "Device endpoints use the X-Device-Key header."))
+                                + "Device endpoints use the X-Device-Key header and the payment webhook uses X-Webhook-Secret."))
                 .components(new Components()
                         .addSecuritySchemes("bearer", new SecurityScheme().type(SecurityScheme.Type.HTTP).scheme("bearer").bearerFormat("JWT"))
-                        .addSecuritySchemes("deviceKey", new SecurityScheme().type(SecurityScheme.Type.APIKEY).in(SecurityScheme.In.HEADER).name("X-Device-Key")))
+                        .addSecuritySchemes("deviceKey", new SecurityScheme().type(SecurityScheme.Type.APIKEY).in(SecurityScheme.In.HEADER).name("X-Device-Key"))
+                        .addSecuritySchemes("webhookSecret", new SecurityScheme().type(SecurityScheme.Type.APIKEY).in(SecurityScheme.In.HEADER).name("X-Webhook-Secret")))
                 .addSecurityItem(new SecurityRequirement().addList("bearer"))
-                .addSecurityItem(new SecurityRequirement().addList("deviceKey"));
+                .addSecurityItem(new SecurityRequirement().addList("deviceKey"))
+                .addSecurityItem(new SecurityRequirement().addList("webhookSecret"));
     }
 }

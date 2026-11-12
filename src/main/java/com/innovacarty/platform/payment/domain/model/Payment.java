@@ -3,7 +3,7 @@ package com.innovacarty.platform.payment.domain.model;
 import jakarta.persistence.*;
 import java.time.Instant;
 
-/** Simulated payment of a shopping session (Yape, Plin or card). */
+/** Payment of a shopping session (Yape, Plin or card), made from the app, the cart or confirmed by the provider webhook. */
 @Entity
 @Table(name = "payments")
 public class Payment {
@@ -18,6 +18,9 @@ public class Payment {
     private double amount;
     private String status;
     private Instant paidAt;
+    /** Id of the provider event that confirmed this payment (webhook), used to ignore repeated notifications. */
+    @Column(unique = true)
+    private String externalEventId;
 
     public Payment() {
     }
@@ -92,5 +95,13 @@ public class Payment {
 
     public void setPaidAt(Instant paidAt) {
         this.paidAt = paidAt;
+    }
+
+    public String getExternalEventId() {
+        return externalEventId;
+    }
+
+    public void setExternalEventId(String externalEventId) {
+        this.externalEventId = externalEventId;
     }
 }
