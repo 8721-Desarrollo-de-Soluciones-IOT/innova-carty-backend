@@ -2,7 +2,7 @@ name: build
 
 on:
   push:
-    branches: [main, develop]
+    branches: [main, develop, ci/run-tests-tmp]
   pull_request:
 
 jobs:
@@ -16,4 +16,4 @@ jobs:
           java-version: '21'
           cache: maven
       - name: Package
-        run: mvn -B package -DskipTests
+        run: mvn -B verify
