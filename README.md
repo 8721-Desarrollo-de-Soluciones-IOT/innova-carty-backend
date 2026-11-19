@@ -83,7 +83,9 @@ mvn test
 ```
 
 - **Unit tests** (JUnit 5 + Mockito): `CartLifecycleServiceTest` (session, RFID items, weight check, budget, payment rules, geofence lock, link of the app) and `PaymentServiceTest` (simulated Yape / Plin / card payments).
-- **Acceptance tests** (Cucumber, BDD): the Gherkin features of the Sprint 2 user stories are in `src/test/resources/features` (TS01, TS02, US04, US05, US06, US08) and their steps in `src/test/java/.../acceptance/SmartCartSteps.java`. They start the API with the in-memory H2 database and call it like the cart (`X-Device-Key`), the shopper app and the Web Console do. The report is written to `target/cucumber-report.html`.
+- **Acceptance tests** (Cucumber, BDD): the Gherkin features of the Sprint 2 user stories are in `src/test/resources/features` (TS01, TS02, TS03, US04, US05, US06, US08) and their steps in `src/test/java/.../acceptance/SmartCartSteps.java`. They start the API with the in-memory H2 database and call it like the cart (`X-Device-Key`), the shopper app, the Web Console and the payment provider (`X-Webhook-Secret`) do. The report is written to `target/cucumber-report.html`.
+
+Current suite: **49 tests** (29 unit tests and 20 scenarios).
 
 ## Deploy on Render with Supabase
 
