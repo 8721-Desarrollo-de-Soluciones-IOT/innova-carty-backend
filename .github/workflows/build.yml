@@ -15,5 +15,5 @@ jobs:
           distribution: temurin
           java-version: '21'
           cache: maven
-      - name: Package
-        run: mvn -B package -DskipTests
+      - name: Build and test
+        run: mvn -B verify
