@@ -121,3 +121,23 @@ On the free plan Render sleeps the service after 15 min without requests; the fi
 ## Conventions
 
 Conventional Commits (`feat:`, `fix:`, `docs:`, `chore:`), GitFlow (`main`, `develop`, `feature/*`).
+
+## Related repositories
+
+| Repository | Product |
+| :--- | :--- |
+| [innova-carty-frontend-web-app](https://github.com/8721-Desarrollo-de-Soluciones-IOT/innova-carty-frontend-web-app) | Web Console (Angular) |
+| [innova-carty-mobile-app](https://github.com/8721-Desarrollo-de-Soluciones-IOT/innova-carty-mobile-app) | Mobile app (Flutter) |
+| [innova-carty-embedded-app](https://github.com/8721-Desarrollo-de-Soluciones-IOT/innova-carty-embedded-app) | Smart cart firmware (ESP32) |
+| [innova-carty-landing-page](https://github.com/8721-Desarrollo-de-Soluciones-IOT/innova-carty-landing-page) | Landing Page |
+| [docs](https://github.com/8721-Desarrollo-de-Soluciones-IOT/docs) | Project report |
+
+## Team (Sprint 2 aspect leaders)
+
+| Aspect | Leader |
+| :--- | :--- |
+| Backend (Spring Boot and Supabase) | Díaz Fiestas, Jorge Luis (`LuisDiazpe`) |
+| Device Gateway and telemetry | Huanca Navarro, Gustavo Esau (`petitavo`) |
+| Payments | Paico Calderon, July Zelmira (`u20211d760`) |
+| Testing | Trillo Hernández, Anghel Melanie (`AM27TH`) |
+| Deployment (Render and Vercel) | Pardo Chumpitazi, Kevin Patrick (`Kevinyin11`) |
