@@ -12,7 +12,7 @@
 
     <groupId>com.innovacarty</groupId>
     <artifactId>platform</artifactId>
-    <version>0.2.0</version>
+    <version>0.3.0</version>
     <name>innova-carty-backend</name>
     <description>Innova Carty Platform: RESTful API for the smart carts, the Web Console and the mobile app</description>
 
