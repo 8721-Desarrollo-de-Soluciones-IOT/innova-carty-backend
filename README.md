@@ -89,7 +89,20 @@ Current suite: **49 tests** (29 unit tests and 20 scenarios).
 
 ## Deploy on Render with Supabase
 
-1. Render: **New → Web Service**, connect this repository, **Language: Docker**, plan **Free**, health check `/actuator/health`.
+1. Render: **New → Web Service**, connect this repository, **Language: Docker**, plan **Free**, 
+### Try the payment webhook (TS03)
+
+With the API running locally (`innova-webhook-lab` is the default secret outside Render):
+
+```bash
+curl -X POST http://localhost:8080/api/v1/payments/webhook \
+  -H "Content-Type: application/json" \
+  -H "X-Webhook-Secret: innova-webhook-lab" \
+  -d '{"eventId":"evt-yape-001","provider":"YAPE","cartId":"CART-0427","operationCode":"48213977","amount":9.80,"status":"APPROVED"}'
+```
+
+The response says `PAYMENT_CREATED`, `DUPLICATE` (same `eventId` again) or `REJECTION_RECORDED`. A wrong secret returns `401` and an amount different from the order total returns `409`.
+health check `/actuator/health`.
 2. Environment variables (see `.env.example`):
 
 | Variable | Value |
