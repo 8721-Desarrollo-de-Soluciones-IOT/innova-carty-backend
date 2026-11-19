@@ -83,11 +83,26 @@ mvn test
 ```
 
 - **Unit tests** (JUnit 5 + Mockito): `CartLifecycleServiceTest` (session, RFID items, weight check, budget, payment rules, geofence lock, link of the app) and `PaymentServiceTest` (simulated Yape / Plin / card payments).
-- **Acceptance tests** (Cucumber, BDD): the Gherkin features of the Sprint 2 user stories are in `src/test/resources/features` (TS01, TS02, US04, US05, US06, US08) and their steps in `src/test/java/.../acceptance/SmartCartSteps.java`. They start the API with the in-memory H2 database and call it like the cart (`X-Device-Key`), the shopper app and the Web Console do. The report is written to `target/cucumber-report.html`.
+- **Acceptance tests** (Cucumber, BDD): the Gherkin features of the Sprint 2 user stories are in `src/test/resources/features` (TS01, TS02, TS03, US04, US05, US06, US08) and their steps in `src/test/java/.../acceptance/SmartCartSteps.java`. They start the API with the in-memory H2 database and call it like the cart (`X-Device-Key`), the shopper app, the Web Console and the payment provider (`X-Webhook-Secret`) do. The report is written to `target/cucumber-report.html`.
+
+Current suite: **49 tests** (29 unit tests and 20 scenarios).
 
 ## Deploy on Render with Supabase
 
-1. Render: **New → Web Service**, connect this repository, **Language: Docker**, plan **Free**, health check `/actuator/health`.
+1. Render: **New → Web Service**, connect this repository, **Language: Docker**, plan **Free**, 
+### Try the payment webhook (TS03)
+
+With the API running locally (`innova-webhook-lab` is the default secret outside Render):
+
+```bash
+curl -X POST http://localhost:8080/api/v1/payments/webhook \
+  -H "Content-Type: application/json" \
+  -H "X-Webhook-Secret: innova-webhook-lab" \
+  -d '{"eventId":"evt-yape-001","provider":"YAPE","cartId":"CART-0427","operationCode":"48213977","amount":9.80,"status":"APPROVED"}'
+```
+
+The response says `PAYMENT_CREATED`, `DUPLICATE` (same `eventId` again) or `REJECTION_RECORDED`. A wrong secret returns `401` and an amount different from the order total returns `409`.
+health check `/actuator/health`.
 2. Environment variables (see `.env.example`):
 
 | Variable | Value |
@@ -97,6 +112,7 @@ mvn test
 | `SPRING_DATASOURCE_PASSWORD` | Supabase database password |
 | `JWT_SECRET` | long random text |
 | `DEVICE_API_KEY` | key of the ESP32 |
+| `PAYMENT_WEBHOOK_SECRET` | shared secret that the payment provider sends in `X-Webhook-Secret` (TS03) |
 
 The tables are created on the first start in the `innovacarty` schema (not exposed by the Supabase Data API).
 
@@ -105,3 +121,23 @@ On the free plan Render sleeps the service after 15 min without requests; the fi
 ## Conventions
 
 Conventional Commits (`feat:`, `fix:`, `docs:`, `chore:`), GitFlow (`main`, `develop`, `feature/*`).
+
+## Related repositories
+
+| Repository | Product |
+| :--- | :--- |
+| [innova-carty-frontend-web-app](https://github.com/8721-Desarrollo-de-Soluciones-IOT/innova-carty-frontend-web-app) | Web Console (Angular) |
+| [innova-carty-mobile-app](https://github.com/8721-Desarrollo-de-Soluciones-IOT/innova-carty-mobile-app) | Mobile app (Flutter) |
+| [innova-carty-embedded-app](https://github.com/8721-Desarrollo-de-Soluciones-IOT/innova-carty-embedded-app) | Smart cart firmware (ESP32) |
+| [innova-carty-landing-page](https://github.com/8721-Desarrollo-de-Soluciones-IOT/innova-carty-landing-page) | Landing Page |
+| [docs](https://github.com/8721-Desarrollo-de-Soluciones-IOT/docs) | Project report |
+
+## Team (Sprint 2 aspect leaders)
+
+| Aspect | Leader |
+| :--- | :--- |
+| Backend (Spring Boot and Supabase) | Díaz Fiestas, Jorge Luis (`LuisDiazpe`) |
+| Device Gateway and telemetry | Huanca Navarro, Gustavo Esau (`petitavo`) |
+| Payments | Paico Calderon, July Zelmira (`u20211d760`) |
+| Testing | Trillo Hernández, Anghel Melanie (`AM27TH`) |
+| Deployment (Render and Vercel) | Pardo Chumpitazi, Kevin Patrick (`Kevinyin11`) |
