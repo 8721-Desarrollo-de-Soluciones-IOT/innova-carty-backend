@@ -99,6 +99,7 @@ Current suite: **49 tests** (29 unit tests and 20 scenarios).
 | `SPRING_DATASOURCE_PASSWORD` | Supabase database password |
 | `JWT_SECRET` | long random text |
 | `DEVICE_API_KEY` | key of the ESP32 |
+| `PAYMENT_WEBHOOK_SECRET` | shared secret that the payment provider sends in `X-Webhook-Secret` (TS03) |
 
 The tables are created on the first start in the `innovacarty` schema (not exposed by the Supabase Data API).
 
